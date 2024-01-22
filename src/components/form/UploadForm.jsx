@@ -6,7 +6,7 @@ import SectionInfo from "./SectionInfo";
 import Button from "./Button.jsx";
 
 import downIcon from "/down_icon.svg";
-import clockIcon from "/clock.svg";
+import ClockIcon from "./icons/ClockIcon.jsx";
 
 const UploadForm = (props) => {
   //const [testingCenters, setTestingCenters] = useState([
@@ -51,9 +51,7 @@ const UploadForm = (props) => {
             <label htmlFor="tolerance-toggle">Toggle ON</label>
 
             <div className="select-tolerance">
-              <div className="clock-container">
-                <img src={clockIcon} className="" alt="" />
-              </div>
+              <ClockIcon />
               <p>Select Tolerance Level</p>
             </div>
           </div>
@@ -111,9 +109,7 @@ const UploadForm = (props) => {
                   <img src={downIcon} className="" alt="" />
                 </div>
               </div>
-              <div className="clock-container">
-                <img src={clockIcon} className="" alt="" />
-              </div>
+              <ClockIcon />
             </div>
           ))}
         </div>
