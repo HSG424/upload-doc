@@ -195,6 +195,7 @@ select.select-box-sm {
   @include flex-center;
   border-radius: 10px;
   margin: 8px 0 0 14px;
+  cursor: pointer;
 }
 
 .x-container img {
@@ -302,6 +303,10 @@ input:checked + .slider:before {
   height: 22px;
   margin-left: 12px;
   padding-left: 12px;
+}
+
+button {
+  cursor: pointer;
 }
 
 .btn-container {
