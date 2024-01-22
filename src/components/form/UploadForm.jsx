@@ -6,6 +6,7 @@ import SectionInfo from "./SectionInfo";
 import Button from "./Button";
 import RadioBtn from "./RadioBtn";
 import Label from "./Label";
+import ToggleCheck from "./ToggleCheck";
 
 import DownIcon from "./icons/DownIcon";
 import ClockIcon from "./icons/ClockIcon.jsx";
@@ -25,8 +26,14 @@ const UploadForm = (props) => {
     setClientMode(event.target.value);
   };
 
+  const submitHandler = (event) => {
+    event.preventDefault();
+    console.log("Split Schedule using social distancing?", splitSched);
+    console.log("Client Type: ", clientMode);
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="flex-container">
         <div className="form-left-side">
           <label htmlFor="" className="display-none">
@@ -49,18 +56,8 @@ const UploadForm = (props) => {
 
           <h5 className="">Tolerance Window:</h5>
           <div className="toggle-row">
-            <label className="switch">
-              <input
-                type="checkbox"
-                id="tolerance-toggle"
-                name="tolerance-toggle"
-                onChange={() => {}}
-                checked
-              />
-              <span className="slider round"></span>
-            </label>
+            <ToggleCheck />
             <label htmlFor="tolerance-toggle">Toggle ON</label>
-
             <div className="select-tolerance">
               <ClockIcon />
               <p>Select Tolerance Level</p>
