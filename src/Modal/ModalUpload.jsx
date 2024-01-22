@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Modal from "./Modal";
-import UploadForm from "../components/form/UploadForm";
+import UploadFormWrapper from "../components/form/UploadFormWrapper";
 
 const ModalUpload = (props) => {
   const modalClose = () => {};
@@ -9,7 +9,7 @@ const ModalUpload = (props) => {
     <Fragment>
       {props.modal && (
         <Modal onClose={modalClose}>
-          {<UploadForm onModalClose={props.onModalClose} />}
+          {<UploadFormWrapper onModalClose={props.onModalClose} />}
         </Modal>
       )}
     </Fragment>
