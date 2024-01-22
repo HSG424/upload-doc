@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Modal from "./Modal";
-import UploadForm from "../components/UploadForm";
+import UploadForm from "../components/form/UploadForm";
 
 const ModalUpload = (props) => {
   const modalClose = () => {};

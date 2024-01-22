@@ -1,44 +1,15 @@
 import { useState } from "react";
+
+import { testingCentersArr } from "../../test-data/test-data.js";
+import SectionInfo from "./SectionInfo";
+
 import downIcon from "/down_icon.svg";
 import clockIcon from "/clock.svg";
 import xIcon from "/x-icon.svg";
 
 const UploadForm = (props) => {
   //const [testingCenters, setTestingCenters] = useState([
-  const [testingCenters] = useState([
-    {
-      id: 1,
-      label: "Testing Center 1",
-    },
-    {
-      id: 2,
-      label: "Testing Center 2",
-    },
-    {
-      id: 3,
-      label: "Testing Center 3",
-    },
-    {
-      id: 4,
-      label: "Testing Center 4",
-    },
-    {
-      id: 5,
-      label: "Testing Center 5",
-    },
-    {
-      id: 6,
-      label: "Testing Center 6",
-    },
-    {
-      id: 7,
-      label: "Testing Center 7",
-    },
-    {
-      id: 8,
-      label: "Testing Center 8",
-    },
-  ]);
+  const [testingCenters] = useState(testingCentersArr);
 
   return (
     <div>
@@ -65,10 +36,10 @@ const UploadForm = (props) => {
                 </div>
               </div>
               <hr align="left" />
-              <div>
-                <h5 className="">Elapse Data Checking:</h5>
-                <p className="details-p">No Elapsed Dates!</p>
-              </div>
+              <SectionInfo
+                header="Elapse Data Checking:"
+                para="No Elapsed Dates!"
+              />
               <hr align="left" />
 
               <h5 className="">Tolerance Window:</h5>
@@ -112,10 +83,7 @@ const UploadForm = (props) => {
 
               <hr align="left" />
 
-              <div>
-                <h5 className="">Location Checking:</h5>
-                <p className="details-p">All Available!</p>
-              </div>
+              <SectionInfo header="Location Checking:" para="All Available!" />
               <hr align="left" />
 
               <div className="client-centers-margin">
