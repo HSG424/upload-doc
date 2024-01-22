@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ModalUpload from "./Modal/ModalUpload";
+import "./app.scss";
 
 function App() {
   const [modal, setModal] = useState(false);
@@ -14,9 +15,11 @@ function App() {
 
   return (
     <>
-      <button type="button" onClick={popModalHandler}>
-        Pop Modal
-      </button>
+      <div className="btn-container">
+        <button type="button" onClick={popModalHandler}>
+          Click to Pop Modal
+        </button>
+      </div>
       <ModalUpload modal={modal} onModalClose={closeModalHandler} />
     </>
   );

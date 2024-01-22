@@ -9,22 +9,24 @@
 }
 
 .modal {
-  position: fixed;
-  top: 14vh;
   left: 5%;
   width: 90%;
   background-color: #fff;
   padding: 1rem;
-  border-radius: 14px;
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
-  box-shadow: inset 0 0 14px #000000;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 10px;
 }
 
 @media (min-width: 768px) {
   .modal {
-    width: 38rem;
-    left: calc(50% - 19rem);
+    width: 1088px;
+    left: calc(50% - 544px);
   }
 }
 
