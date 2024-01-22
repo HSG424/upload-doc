@@ -36,4 +36,4 @@ If you open your browser console, you will see details of a form submit when you
 
 ## Author
 
-- **Fred Han** - (https://github.com/HSG424)s
+- **Fred Han** - (https://github.com/HSG424)
