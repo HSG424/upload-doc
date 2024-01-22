@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 import { testingCentersArr } from "../../test-data/test-data.js";
+
 import SectionInfo from "./SectionInfo";
+import Button from "./Button.jsx";
 
 import downIcon from "/down_icon.svg";
 import clockIcon from "/clock.svg";
@@ -120,10 +122,8 @@ const UploadForm = (props) => {
         Data in the import file is correct. Please press Continue to import.
       </h3>
       <div className="btn-container">
-        <button type="submit">Continue Import</button>
-        <button type="button" onClick={props.onModalClose}>
-          Cancel
-        </button>
+        <Button type="submit" text="Continue Import" />
+        <Button type="button" text="Cancel" onClick={props.onModalClose} />
       </div>
     </form>
   );
