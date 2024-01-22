@@ -5,7 +5,7 @@ import { testingCentersArr } from "../../test-data/test-data.js";
 import SectionInfo from "./SectionInfo";
 import Button from "./Button.jsx";
 
-import downIcon from "/down_icon.svg";
+import DownIcon from "./icons/DownIcon";
 import ClockIcon from "./icons/ClockIcon.jsx";
 
 const UploadForm = (props) => {
@@ -25,9 +25,7 @@ const UploadForm = (props) => {
               <option value="select-value-2">...</option>
               <option value="select-value-3">...</option>
             </select>
-            <div className="icon-container">
-              <img src={downIcon} className="" alt="" />
-            </div>
+            <DownIcon />
           </div>
           <hr align="left" />
           <SectionInfo
@@ -105,9 +103,7 @@ const UploadForm = (props) => {
                   <option value="select-value-2">...</option>
                   <option value="select-value-3">...</option>
                 </select>
-                <div className="icon-container">
-                  <img src={downIcon} className="" alt="" />
-                </div>
+                <DownIcon />
               </div>
               <ClockIcon />
             </div>

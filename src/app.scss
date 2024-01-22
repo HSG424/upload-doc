@@ -170,7 +170,7 @@ select.select-box-sm {
   @include thin-blue-text;
 }
 
-.select-container .icon-container {
+.select-container .down-container {
   width: 50px;
   height: 100%;
   position: absolute;
@@ -178,7 +178,7 @@ select.select-box-sm {
   @include flex-center;
 }
 
-.icon-container img {
+.down-container img {
   width: 20px;
   filter: invert(14%) sepia(27%) saturate(2623%) hue-rotate(179deg)
     brightness(92%) contrast(99%);
