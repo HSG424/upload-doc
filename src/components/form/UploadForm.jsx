@@ -3,7 +3,9 @@ import { useState } from "react";
 import { testingCentersArr } from "../../test-data/test-data.js";
 
 import SectionInfo from "./SectionInfo";
-import Button from "./Button.jsx";
+import Button from "./Button";
+import RadioBtn from "./RadioBtn";
+import Label from "./Label";
 
 import DownIcon from "./icons/DownIcon";
 import ClockIcon from "./icons/ClockIcon.jsx";
@@ -11,6 +13,17 @@ import ClockIcon from "./icons/ClockIcon.jsx";
 const UploadForm = (props) => {
   //const [testingCenters, setTestingCenters] = useState([
   const [testingCenters] = useState(testingCentersArr);
+
+  const [splitSched, setSplitSched] = useState("Yes");
+  const [clientMode, setClientMode] = useState("Multiple");
+
+  const splitSchedHandler = (event) => {
+    setSplitSched(event.target.value);
+  };
+
+  const clientModeHandler = (event) => {
+    setClientMode(event.target.value);
+  };
 
   return (
     <form>
@@ -58,16 +71,23 @@ const UploadForm = (props) => {
           <div>
             <h5 className="">Split Schedule using social distancing?</h5>
             <div className="radio-container">
-              <input
-                type="radio"
-                name="split-sched"
-                onChange={() => {}}
-                checked
+              <RadioBtn
+                name="splitSched"
+                id="splitSchedYes"
+                value="Yes"
+                onChange={splitSchedHandler}
+                checked={splitSched === "Yes"}
               />
-              <label className="">Yes</label>
+              <Label htmlFor="splitSchedYes">Yes</Label>
 
-              <input type="radio" name="split-sched" />
-              <label className="">No</label>
+              <RadioBtn
+                name="splitSched"
+                id="splitSchedNo"
+                value="No"
+                onChange={splitSchedHandler}
+                checked={splitSched === "No"}
+              />
+              <Label htmlFor="splitSchedNo">No</Label>
             </div>
           </div>
 
@@ -79,16 +99,23 @@ const UploadForm = (props) => {
           <div className="client-centers-margin">
             <h5 className="">Client:</h5>
             <div className="radio-container">
-              <input type="radio" name="client-centers" />
-              <label className="">Single</label>
-
-              <input
-                type="radio"
-                name="client-centers"
-                onChange={() => {}}
-                checked
+              <RadioBtn
+                name="clientCenters"
+                id="singleClientCenter"
+                value="Single"
+                onChange={clientModeHandler}
+                checked={clientMode === "Single"}
               />
-              <label className="">Multiple</label>
+              <Label htmlFor="singleClientCenter">Single</Label>
+
+              <RadioBtn
+                name="clientCenters"
+                id="multipleClientCenter"
+                value="Multiple"
+                onChange={clientModeHandler}
+                checked={clientMode === "Multiple"}
+              />
+              <Label htmlFor="multipleClientCenter">Multiple</Label>
             </div>
           </div>
 
