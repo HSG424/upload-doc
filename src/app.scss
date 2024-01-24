@@ -246,11 +246,15 @@ select.select-box-sm {
   content: "";
   height: 22px;
   width: 22px;
-  right: 28px;
+  left: 3px;
   bottom: 2px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+}
+
+input:checked + .slider:before {
+  left: -5px;
 }
 
 input:checked + .slider {

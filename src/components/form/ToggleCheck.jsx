@@ -1,12 +1,12 @@
-const ToggleCheck = () => {
+const ToggleCheck = (props) => {
   return (
     <label className="switch">
       <input
         type="checkbox"
-        id="tolerance-toggle"
-        name="tolerance-toggle"
-        onChange={() => {}}
-        checked
+        id={props.id}
+        name={props.name}
+        onChange={props.onChange}
+        checked={props.value}
       />
       <span className="slider round"></span>
     </label>

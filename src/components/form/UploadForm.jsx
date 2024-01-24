@@ -17,6 +17,11 @@ const UploadForm = (props) => {
 
   const [splitSched, setSplitSched] = useState("Yes");
   const [clientMode, setClientMode] = useState("Multiple");
+  const [toleranceChecked, setToleranceChecked] = useState(true);
+
+  const toleranceCheckedHandler = () => {
+    setToleranceChecked((prevVal) => !prevVal);
+  };
 
   const splitSchedHandler = (event) => {
     setSplitSched(event.target.value);
@@ -30,6 +35,7 @@ const UploadForm = (props) => {
     event.preventDefault();
     console.log("Split Schedule using social distancing?", splitSched);
     console.log("Client Type: ", clientMode);
+    console.log("Tolerance Window: ", toleranceChecked);
   };
 
   return (
@@ -56,7 +62,12 @@ const UploadForm = (props) => {
 
           <h5 className="">Tolerance Window:</h5>
           <div className="toggle-row">
-            <ToggleCheck />
+            <ToggleCheck
+              id="tolerance-toggle"
+              name="tolerance-toggle"
+              value={toleranceChecked}
+              onChange={toleranceCheckedHandler}
+            />
             <label htmlFor="tolerance-toggle">Toggle ON</label>
             <div className="select-tolerance">
               <ClockIcon />
