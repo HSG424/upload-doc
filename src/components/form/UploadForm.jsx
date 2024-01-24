@@ -9,7 +9,7 @@ import Label from "./Label";
 import ToggleCheck from "./ToggleCheck";
 
 import DownIcon from "./icons/DownIcon";
-import ClockIcon from "./icons/ClockIcon.jsx";
+import ClockIcon from "./icons/ClockIcon";
 
 const UploadForm = (props) => {
   //const [testingCenters, setTestingCenters] = useState([

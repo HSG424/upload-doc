@@ -5,7 +5,7 @@ const UploadFormWrapper = (props) => {
   return (
     <div>
       <div className="x-container" onClick={props.onModalClose}>
-        <img src={xIcon} className="" alt="" />
+        <img src={xIcon} alt="Close icon" />
       </div>
       <div className="main-container">
         <h1>Document Upload</h1>

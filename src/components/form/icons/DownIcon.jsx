@@ -3,7 +3,7 @@ import downIcon from "/down_icon.svg";
 const DownIcon = () => {
   return (
     <div className="down-container">
-      <img src={downIcon} className="" alt="" />
+      <img src={downIcon} alt="Down icon" />
     </div>
   );
 };
