@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import { testingCentersArr } from "../../test-data/test-data.js";
 
@@ -14,10 +14,11 @@ import ClockIcon from "./icons/ClockIcon.jsx";
 const UploadForm = (props) => {
   //const [testingCenters, setTestingCenters] = useState([
   const [testingCenters] = useState(testingCentersArr);
-
   const [splitSched, setSplitSched] = useState("Yes");
   const [clientMode, setClientMode] = useState("Multiple");
   const [toleranceChecked, setToleranceChecked] = useState(true);
+
+  const fileInputRef = useRef();
 
   const toleranceCheckedHandler = () => {
     setToleranceChecked((prevVal) => !prevVal);
@@ -33,9 +34,14 @@ const UploadForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    console.log(
+      `Selected file - ${
+        fileInputRef.current.files[0]?.name ?? "No file selected!"
+      }`
+    );
+    console.log("Tolerance Window: ", toleranceChecked);
     console.log("Split Schedule using social distancing?", splitSched);
     console.log("Client Type: ", clientMode);
-    console.log("Tolerance Window: ", toleranceChecked);
   };
 
   return (
@@ -54,13 +60,16 @@ const UploadForm = (props) => {
             <DownIcon />
           </div>
           <hr align="left" />
+          <h5>Select a manifest that you&apos;d like to import</h5>
+          <input type="file" ref={fileInputRef} />
+          <hr align="left" />
           <SectionInfo
             header="Elapse Data Checking:"
             para="No Elapsed Dates!"
           />
           <hr align="left" />
 
-          <h5 className="">Tolerance Window:</h5>
+          <h5>Tolerance Window:</h5>
           <div className="toggle-row">
             <ToggleCheck
               id="tolerance-toggle"
@@ -77,7 +86,7 @@ const UploadForm = (props) => {
         </div>
         <div className="form-right-side">
           <div>
-            <h5 className="">Split Schedule using social distancing?</h5>
+            <h5>Split Schedule using social distancing?</h5>
             <div className="radio-container">
               <RadioBtn
                 name="splitSched"
@@ -105,7 +114,7 @@ const UploadForm = (props) => {
           <hr align="left" />
 
           <div className="client-centers-margin">
-            <h5 className="">Client:</h5>
+            <h5>Client:</h5>
             <div className="radio-container">
               <RadioBtn
                 name="clientCenters"
@@ -129,9 +138,7 @@ const UploadForm = (props) => {
 
           {testingCenters.map((center) => (
             <div className="select-row-sm" key={center.id}>
-              <label htmlFor="" className="">
-                {center.label}
-              </label>
+              <label htmlFor="">{center.label}</label>
               <div className="select-container fixed-width">
                 <select className="select-box select-box-sm">
                   <option value="select-value-1">Select Client</option>
