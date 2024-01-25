@@ -1,6 +1,11 @@
 import DownIcon from "./icons/DownIcon";
 import ClockIcon from "./icons/ClockIcon";
 
+const getTestingCenterVal = (id) => {
+  console.log(id);
+  return "label";
+};
+
 const TestingCenters = (props) => {
   return (
     <>
@@ -14,8 +19,9 @@ const TestingCenters = (props) => {
               data-center-id={center.id}
               onChange={props.onChange}
               className="select-box select-box-sm"
+              value={getTestingCenterVal(center.id)}
             >
-              <option selected disabled>
+              <option value="label" disabled>
                 Select Client
               </option>
               {center.clients.map((client) => (
