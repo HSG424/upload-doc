@@ -9,6 +9,13 @@ import Label from "./Label";
 import ToggleCheck from "./ToggleCheck";
 import ClockIcon from "./icons/ClockIcon";
 
+const noSelectedCenters = {
+  center1: "",
+  center2: "",
+  center3: "",
+  center4: "",
+};
+
 const UploadForm = (props) => {
   const [splitSched, setSplitSched] = useState("Yes");
   const [clientMode, setClientMode] = useState("Multiple");
@@ -16,12 +23,7 @@ const UploadForm = (props) => {
 
   const [testCentersData, setTestCentersData] = useState(testingCentersData);
 
-  const [testingCenters, setTestingCenters] = useState({
-    center1: "",
-    center2: "",
-    center3: "",
-    center4: "",
-  });
+  const [testingCenters, setTestingCenters] = useState(noSelectedCenters);
 
   const fileInputRef = useRef();
 
@@ -35,6 +37,7 @@ const UploadForm = (props) => {
 
   const clientModeHandler = (event) => {
     setClientMode(event.target.value);
+    setTestingCenters(noSelectedCenters);
     setTestCentersData(
       event.target.value === "Multiple"
         ? testingCentersData
@@ -70,8 +73,6 @@ const UploadForm = (props) => {
       console.log("Testing Center 3: ", testingCenters.center3);
     testingCenters.center4 &&
       console.log("Testing Center 4: ", testingCenters.center4);
-
-    console.log("!!!!!!!", testingCenters);
   };
 
   return (
