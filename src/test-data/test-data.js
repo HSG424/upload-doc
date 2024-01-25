@@ -1,3 +1,9 @@
+export const importNames = [
+  { id: 1, label: "Lorem Import", value: "lorem-import" },
+  { id: 2, label: "Ipsum Import", value: "ipsum-import" },
+  { id: 3, label: "Dolor Import", value: "dolor-import" },
+];
+
 export const testingCentersData = [
   {
     id: 1,

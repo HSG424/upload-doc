@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { testingCentersData } from "../../test-data/test-data.js";
+import { importNames, testingCentersData } from "../../test-data/test-data.js";
 import BigSelect from "./BigSelect";
 import SectionInfo from "./SectionInfo";
 import Button from "./Button";
@@ -17,6 +17,8 @@ const noSelectedCenters = {
 };
 
 const UploadForm = (props) => {
+  const [importName, setImportName] = useState("");
+
   const [splitSched, setSplitSched] = useState("Yes");
   const [clientMode, setClientMode] = useState("Multiple");
   const [toleranceChecked, setToleranceChecked] = useState(true);
@@ -26,6 +28,10 @@ const UploadForm = (props) => {
   const [testingCenters, setTestingCenters] = useState(noSelectedCenters);
 
   const fileInputRef = useRef();
+
+  const importNameHandler = (event) => {
+    setImportName(event.target.value);
+  };
 
   const toleranceCheckedHandler = () => {
     setToleranceChecked((prevVal) => !prevVal);
@@ -57,6 +63,8 @@ const UploadForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    console.log("=================================");
+    console.log("Select Import Name: ", importName || "nothing selected!");
     console.log(
       `Selected file - ${
         fileInputRef.current.files[0]?.name ?? "No file selected!"
@@ -73,6 +81,7 @@ const UploadForm = (props) => {
       console.log("Testing Center 3: ", testingCenters.center3);
     testingCenters.center4 &&
       console.log("Testing Center 4: ", testingCenters.center4);
+    console.log("=================================");
   };
 
   return (
@@ -82,7 +91,11 @@ const UploadForm = (props) => {
           <label htmlFor="" className="display-none">
             Select Import Name:
           </label>
-          <BigSelect />
+          <BigSelect
+            value={importName}
+            onChange={importNameHandler}
+            importNames={importNames}
+          />
           <hr align="left" />
           <h5>Select a manifest that you&apos;d like to import</h5>
           <input type="file" ref={fileInputRef} />
