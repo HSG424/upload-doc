@@ -14,6 +14,8 @@ const UploadForm = (props) => {
   const [clientMode, setClientMode] = useState("Multiple");
   const [toleranceChecked, setToleranceChecked] = useState(true);
 
+  const [testCenters, setTestCenters] = useState(testingCenters);
+
   const [testCenter1, setTestCenter1] = useState("");
   const [testCenter2, setTestCenter2] = useState("");
   const [testCenter3, setTestCenter3] = useState("");
@@ -31,6 +33,9 @@ const UploadForm = (props) => {
 
   const clientModeHandler = (event) => {
     setClientMode(event.target.value);
+    setTestCenters(
+      event.target.value === "Multiple" ? testingCenters : [testingCenters[0]]
+    );
   };
 
   const testingCentersHandler = (event) => {
@@ -153,7 +158,7 @@ const UploadForm = (props) => {
           </div>
 
           <TestingCenters
-            testingCenters={testingCenters}
+            testCenters={testCenters}
             onChange={testingCentersHandler}
           />
         </div>

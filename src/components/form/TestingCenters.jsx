@@ -4,7 +4,7 @@ import ClockIcon from "./icons/ClockIcon";
 const TestingCenters = (props) => {
   return (
     <>
-      {props.testingCenters.map((center) => (
+      {props.testCenters.map((center) => (
         <div className="select-row-sm" key={center.id}>
           <label htmlFor="">{center.label}</label>
           <div className="select-container fixed-width">
@@ -15,7 +15,9 @@ const TestingCenters = (props) => {
               onChange={props.onChange}
               className="select-box select-box-sm"
             >
-              <option value="select-value-1">Select Client</option>
+              <option selected disabled>
+                Select Client
+              </option>
               {center.clients.map((client) => (
                 <option value={client.value} key={client.id}>
                   {client.label}
