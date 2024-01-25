@@ -1,22 +1,23 @@
 import { useState, useRef } from "react";
-
-import { testingCentersArr } from "../../test-data/test-data.js";
-
+import { testingCenters } from "../../test-data/test-data.js";
+import BigSelect from "./BigSelect";
 import SectionInfo from "./SectionInfo";
 import Button from "./Button";
 import RadioBtn from "./RadioBtn";
+import TestingCenters from "./TestingCenters";
 import Label from "./Label";
 import ToggleCheck from "./ToggleCheck";
-
-import DownIcon from "./icons/DownIcon";
 import ClockIcon from "./icons/ClockIcon";
 
 const UploadForm = (props) => {
-  //const [testingCenters, setTestingCenters] = useState([
-  const [testingCenters] = useState(testingCentersArr);
   const [splitSched, setSplitSched] = useState("Yes");
   const [clientMode, setClientMode] = useState("Multiple");
   const [toleranceChecked, setToleranceChecked] = useState(true);
+
+  const [testCenter1, setTestCenter1] = useState("");
+  const [testCenter2, setTestCenter2] = useState("");
+  const [testCenter3, setTestCenter3] = useState("");
+  const [testCenter4, setTestCenter4] = useState("");
 
   const fileInputRef = useRef();
 
@@ -32,6 +33,24 @@ const UploadForm = (props) => {
     setClientMode(event.target.value);
   };
 
+  const testingCentersHandler = (event) => {
+    switch (event.target.getAttribute("data-center-id")) {
+      case "1":
+        setTestCenter1(event.target.value);
+        break;
+      case "2":
+        setTestCenter2(event.target.value);
+        break;
+      case "3":
+        setTestCenter3(event.target.value);
+        break;
+      case "4":
+        setTestCenter4(event.target.value);
+        break;
+      default:
+    }
+  };
+
   const submitHandler = (event) => {
     event.preventDefault();
     console.log(
@@ -42,6 +61,10 @@ const UploadForm = (props) => {
     console.log("Tolerance Window: ", toleranceChecked);
     console.log("Split Schedule using social distancing?", splitSched);
     console.log("Client Type: ", clientMode);
+    testCenter1 && console.log("Testing Center 1: ", testCenter1);
+    testCenter2 && console.log("Testing Center 2: ", testCenter2);
+    testCenter3 && console.log("Testing Center 3: ", testCenter3);
+    testCenter4 && console.log("Testing Center 4: ", testCenter4);
   };
 
   return (
@@ -51,14 +74,7 @@ const UploadForm = (props) => {
           <label htmlFor="" className="display-none">
             Select Import Name:
           </label>
-          <div className="select-container">
-            <select className="select-box">
-              <option value="select-value-1">Select Import Name:</option>
-              <option value="select-value-2">...</option>
-              <option value="select-value-3">...</option>
-            </select>
-            <DownIcon />
-          </div>
+          <BigSelect />
           <hr align="left" />
           <h5>Select a manifest that you&apos;d like to import</h5>
           <input type="file" ref={fileInputRef} />
@@ -136,20 +152,10 @@ const UploadForm = (props) => {
             </div>
           </div>
 
-          {testingCenters.map((center) => (
-            <div className="select-row-sm" key={center.id}>
-              <label htmlFor="">{center.label}</label>
-              <div className="select-container fixed-width">
-                <select className="select-box select-box-sm">
-                  <option value="select-value-1">Select Client</option>
-                  <option value="select-value-2">...</option>
-                  <option value="select-value-3">...</option>
-                </select>
-                <DownIcon />
-              </div>
-              <ClockIcon />
-            </div>
-          ))}
+          <TestingCenters
+            testingCenters={testingCenters}
+            onChange={testingCentersHandler}
+          />
         </div>
       </div>
       <h3>
