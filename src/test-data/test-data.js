@@ -1,4 +1,4 @@
-export const testingCenters = [
+export const testingCentersData = [
   {
     id: 1,
     label: "Testing Center 1",

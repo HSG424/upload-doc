@@ -1,15 +1,14 @@
 import DownIcon from "./icons/DownIcon";
 import ClockIcon from "./icons/ClockIcon";
 
-const getTestingCenterVal = (id) => {
-  console.log(id);
-  return "label";
-};
-
 const TestingCenters = (props) => {
+  const getTestingCenterVal = (id) => {
+    return props.testingCenters[`center${id}`] || "label";
+  };
+
   return (
     <>
-      {props.testCenters.map((center) => (
+      {props.testCentersData.map((center) => (
         <div className="select-row-sm" key={center.id}>
           <label htmlFor="">{center.label}</label>
           <div className="select-container fixed-width">

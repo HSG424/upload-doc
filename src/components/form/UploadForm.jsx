@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { testingCenters } from "../../test-data/test-data.js";
+import { testingCentersData } from "../../test-data/test-data.js";
 import BigSelect from "./BigSelect";
 import SectionInfo from "./SectionInfo";
 import Button from "./Button";
@@ -14,12 +14,14 @@ const UploadForm = (props) => {
   const [clientMode, setClientMode] = useState("Multiple");
   const [toleranceChecked, setToleranceChecked] = useState(true);
 
-  const [testCenters, setTestCenters] = useState(testingCenters);
+  const [testCentersData, setTestCentersData] = useState(testingCentersData);
 
-  const [testCenter1, setTestCenter1] = useState("");
-  const [testCenter2, setTestCenter2] = useState("");
-  const [testCenter3, setTestCenter3] = useState("");
-  const [testCenter4, setTestCenter4] = useState("");
+  const [testingCenters, setTestingCenters] = useState({
+    center1: "",
+    center2: "",
+    center3: "",
+    center4: "",
+  });
 
   const fileInputRef = useRef();
 
@@ -33,27 +35,21 @@ const UploadForm = (props) => {
 
   const clientModeHandler = (event) => {
     setClientMode(event.target.value);
-    setTestCenters(
-      event.target.value === "Multiple" ? testingCenters : [testingCenters[0]]
+    setTestCentersData(
+      event.target.value === "Multiple"
+        ? testingCentersData
+        : [testingCentersData[0]]
     );
   };
 
   const testingCentersHandler = (event) => {
-    switch (event.target.getAttribute("data-center-id")) {
-      case "1":
-        setTestCenter1(event.target.value);
-        break;
-      case "2":
-        setTestCenter2(event.target.value);
-        break;
-      case "3":
-        setTestCenter3(event.target.value);
-        break;
-      case "4":
-        setTestCenter4(event.target.value);
-        break;
-      default:
-    }
+    setTestingCenters((prevVal) => {
+      return {
+        ...prevVal,
+        [`center${event.target.getAttribute("data-center-id")}`]:
+          event.target.value,
+      };
+    });
   };
 
   const submitHandler = (event) => {
@@ -66,10 +62,16 @@ const UploadForm = (props) => {
     console.log("Tolerance Window: ", toleranceChecked);
     console.log("Split Schedule using social distancing?", splitSched);
     console.log("Client Type: ", clientMode);
-    testCenter1 && console.log("Testing Center 1: ", testCenter1);
-    testCenter2 && console.log("Testing Center 2: ", testCenter2);
-    testCenter3 && console.log("Testing Center 3: ", testCenter3);
-    testCenter4 && console.log("Testing Center 4: ", testCenter4);
+    testingCenters.center1 &&
+      console.log("Testing Center 1: ", testingCenters.center1);
+    testingCenters.center2 &&
+      console.log("Testing Center 2: ", testingCenters.center2);
+    testingCenters.center3 &&
+      console.log("Testing Center 3: ", testingCenters.center3);
+    testingCenters.center4 &&
+      console.log("Testing Center 4: ", testingCenters.center4);
+
+    console.log("!!!!!!!", testingCenters);
   };
 
   return (
@@ -158,7 +160,8 @@ const UploadForm = (props) => {
           </div>
 
           <TestingCenters
-            testCenters={testCenters}
+            testingCenters={testingCenters}
+            testCentersData={testCentersData}
             onChange={testingCentersHandler}
           />
         </div>
