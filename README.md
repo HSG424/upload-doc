@@ -4,17 +4,21 @@ Built using [VITE](https://vitejs.dev/guide/).
 
 Live deployment: [https://nv-assessment-f1d5f.web.app](https://nv-assessment-f1d5f.web.app)
 
-I spent a lot of time early on working on styling because no styling info/details were provided. Even things like fonts and svg graphics had to be tracked down. This delayed development and there are some parts that are unfinished:
+Parts that are unfinished or could be improved:
 
-- Implement file upload functionality.
-- "UploadForm.jsx" needs to be broken down further into more reusable sub-components: select boxes and "testing center" rows.
-- "UploadForm.jsx" imports from same dir need to be "rolled up"
+- Implement React.Context - over the current prop drilling - to make components like UploadForm.jsx more lean. Not really needed because the prop chain is only 1 component long and its not like React.Context offers any optimization benefits over prop drilling.
+
+- The styling of uploaded files needs a little more work.
+
 - A more robust modal solution must be researched.
-- Mobile styling implemntation.
 
-If given more time, I could really polish this and make it shine.
+- Mobile styling implementation. I was not provided with an img of what the mobile version should look like on smaller screen sizes.
 
-If you open your browser console, you will see details of a form submit when you submit the form. Again, I didn't have much time so the only states working right now are radio buttons and checkboxes.
+If you open your browser console, you will see details of a form submit when you submit the form. All form states are being tracked and output in the console. Please see how robust the multiple testing centers part is!
+
+The extra credit part making the drag & drop work to where the user can drag a file on the page and the filename pops up is complete.
+
+If more resources could be directed towards this, unit testing, typescript, and documentation could be implemented. It's nice to adhere to best practices when the time frame allows for it.
 
 ## Key Files
 

@@ -29,13 +29,10 @@ const UploadForm = (props) => {
   });
 
   const [importName, setImportName] = useState("");
-
   const [splitSched, setSplitSched] = useState("Yes");
   const [clientMode, setClientMode] = useState("Multiple");
   const [toleranceChecked, setToleranceChecked] = useState(true);
-
   const [testCentersData, setTestCentersData] = useState(testingCentersData);
-
   const [testingCenters, setTestingCenters] = useState(noSelectedCenters);
 
   const importNameHandler = (event) => {
