@@ -2,7 +2,7 @@
 $dark-navy: #1c3e6e;
 $dark-navy-text: #092c4c;
 $lighter-navy: #47478b;
-$font-size: 14px;
+$font-size: 15px;
 /* END - sass variables */
 
 /* sass mixins */
@@ -22,6 +22,12 @@ $font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@mixin heavy-border {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #d7d7d7;
+  border-radius: 8px;
 }
 /* END - sass mixins */
 
@@ -155,10 +161,9 @@ form hr {
 }
 
 .select-box {
-  border: 2px solid #d7d7d7;
+  @include heavy-border;
   appearance: none;
   background-color: #fff;
-  border-radius: 8px;
   padding: 0 16px;
   @include dark-blue-text;
   width: 100%;
@@ -335,4 +340,36 @@ button {
   background-color: #fff;
   color: orange;
   border: 2px solid orange;
+}
+
+.upload-container {
+  @include heavy-border;
+  @include thin-blue-text;
+  text-align: center;
+}
+
+.upload-container ul {
+  list-style: none;
+}
+
+.upload-container-inner {
+  @include heavy-border;
+  border-style: dashed;
+  margin: 15px auto;
+  width: 93%;
+  padding: 36px 0 18px;
+}
+
+.upload-container-inner span {
+  font-weight: 600;
+}
+
+.document-icon img {
+  width: 28px;
+  filter: invert(84%) sepia(23%) saturate(6959%) hue-rotate(339deg)
+    brightness(99%) contrast(99%);
+}
+
+.upload-msg {
+  margin-top: 10px;
 }
