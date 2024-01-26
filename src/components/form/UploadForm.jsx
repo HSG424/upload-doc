@@ -65,7 +65,7 @@ const UploadForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log("=================================");
+    console.log("=====FORM=SUBMIT=====");
     console.log("Select Import Name: ", importName || "nothing selected!");
     console.log(
       `Selected file - ${
@@ -83,7 +83,7 @@ const UploadForm = (props) => {
       console.log("Testing Center 3: ", testingCenters.center3);
     testingCenters.center4 &&
       console.log("Testing Center 4: ", testingCenters.center4);
-    console.log("=================================");
+    console.log("=====FORM=SUBMIT=====");
   };
 
   return (
