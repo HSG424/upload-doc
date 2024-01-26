@@ -4,6 +4,7 @@ import {
   Label,
   RadioBtn,
   ToggleCheck,
+  DragDropUpload,
   SectionInfo,
   TestingCenters,
   BigSelect,
@@ -105,15 +106,11 @@ const UploadForm = (props) => {
           <hr align="left" />
           <h5>Select a manifest that you&apos;d like to import</h5>
 
-          <div {...getRootProps()}>
-            <input {...getInputProps()} />
-            <p>Drag and drop files here or click to browse.</p>
-            <ul>
-              {uploadedFiles.map((file) => (
-                <li key={file.name}>{file.name}</li>
-              ))}
-            </ul>
-          </div>
+          <DragDropUpload
+            getRootProps={getRootProps}
+            getInputProps={getInputProps}
+            uploadedFiles={uploadedFiles}
+          />
 
           <hr align="left" />
           <SectionInfo
