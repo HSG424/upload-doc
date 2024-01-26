@@ -1,4 +1,5 @@
 import { DownIcon, ClockIcon } from "../icons";
+import { Label } from ".";
 
 export const TestingCenters = (props) => {
   const getTestingCenterVal = (id) => {
@@ -9,7 +10,10 @@ export const TestingCenters = (props) => {
     <>
       {props.testCentersData.map((center) => (
         <div className="select-row-sm" key={center.id}>
-          <label htmlFor="">{center.label}</label>
+          <Label htmlFor={`testing-center-${center.id}-client`}>
+            {center.label}
+          </Label>
+
           <div className="select-container fixed-width">
             <select
               name={`testing-center-${center.id}-client`}

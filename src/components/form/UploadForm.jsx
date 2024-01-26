@@ -90,9 +90,6 @@ const UploadForm = (props) => {
     <form onSubmit={submitHandler}>
       <div className="flex-container">
         <div className="form-left-side">
-          <label htmlFor="" className="display-none">
-            Select Import Name:
-          </label>
           <BigSelect
             value={importName}
             onChange={importNameHandler}
@@ -116,7 +113,8 @@ const UploadForm = (props) => {
               value={toleranceChecked}
               onChange={toleranceCheckedHandler}
             />
-            <label htmlFor="tolerance-toggle">Toggle ON</label>
+            <Label htmlFor="tolerance-toggle">Toggle ON</Label>
+
             <div className="select-tolerance">
               <ClockIcon />
               <p>Select Tolerance Level</p>
