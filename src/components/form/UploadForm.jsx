@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import {
   Button,
   Label,
@@ -8,6 +8,7 @@ import {
   TestingCenters,
   BigSelect,
 } from "./elements";
+import { useDropzone } from "react-dropzone";
 import { ClockIcon } from "./icons";
 import { importNames, testingCentersData } from "../../test-data/test-data.js";
 
@@ -19,6 +20,13 @@ const noSelectedCenters = {
 };
 
 const UploadForm = (props) => {
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop: (acceptedFiles) => {
+      setUploadedFiles(acceptedFiles);
+    },
+  });
+
   const [importName, setImportName] = useState("");
 
   const [splitSched, setSplitSched] = useState("Yes");
@@ -28,8 +36,6 @@ const UploadForm = (props) => {
   const [testCentersData, setTestCentersData] = useState(testingCentersData);
 
   const [testingCenters, setTestingCenters] = useState(noSelectedCenters);
-
-  const fileInputRef = useRef();
 
   const importNameHandler = (event) => {
     setImportName(event.target.value);
@@ -67,11 +73,12 @@ const UploadForm = (props) => {
     event.preventDefault();
     console.log("=====FORM=SUBMIT=====");
     console.log("Select Import Name: ", importName || "nothing selected!");
-    console.log(
-      `Selected file - ${
-        fileInputRef.current.files[0]?.name ?? "No file selected!"
-      }`
-    );
+
+    // uploaded files info
+    console.log("Files Data: ", uploadedFiles);
+    const fileNamesStr = uploadedFiles.map((el) => el.name).join(", ");
+    console.log("Files Uploaded: ", fileNamesStr);
+
     console.log("Tolerance Window: ", toleranceChecked);
     console.log("Split Schedule using social distancing?", splitSched);
     console.log("Client Type: ", clientMode);
@@ -97,7 +104,17 @@ const UploadForm = (props) => {
           />
           <hr align="left" />
           <h5>Select a manifest that you&apos;d like to import</h5>
-          <input type="file" ref={fileInputRef} />
+
+          <div {...getRootProps()}>
+            <input {...getInputProps()} />
+            <p>Drag and drop files here or click to browse.</p>
+            <ul>
+              {uploadedFiles.map((file) => (
+                <li key={file.name}>{file.name}</li>
+              ))}
+            </ul>
+          </div>
+
           <hr align="left" />
           <SectionInfo
             header="Elapse Data Checking:"
