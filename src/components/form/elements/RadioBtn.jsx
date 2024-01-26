@@ -1,4 +1,4 @@
-const RadioBtn = (props) => {
+export const RadioBtn = (props) => {
   return (
     <input
       type="radio"
@@ -10,4 +10,3 @@ const RadioBtn = (props) => {
     />
   );
 };
-export default RadioBtn;

@@ -1,4 +1,4 @@
-const ToggleCheck = (props) => {
+export const ToggleCheck = (props) => {
   return (
     <label className="switch">
       <input
@@ -12,4 +12,3 @@ const ToggleCheck = (props) => {
     </label>
   );
 };
-export default ToggleCheck;

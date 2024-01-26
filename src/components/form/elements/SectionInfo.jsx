@@ -1,4 +1,4 @@
-const SectionInfo = (props) => {
+export const SectionInfo = (props) => {
   return (
     <div>
       <h5>{props.header}</h5>
@@ -6,4 +6,3 @@ const SectionInfo = (props) => {
     </div>
   );
 };
-export default SectionInfo;

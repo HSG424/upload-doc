@@ -1,7 +1,6 @@
-import DownIcon from "./icons/DownIcon";
-import ClockIcon from "./icons/ClockIcon";
+import { DownIcon, ClockIcon } from "../icons";
 
-const TestingCenters = (props) => {
+export const TestingCenters = (props) => {
   const getTestingCenterVal = (id) => {
     return props.testingCenters[`center${id}`] || "label";
   };
@@ -37,4 +36,3 @@ const TestingCenters = (props) => {
     </>
   );
 };
-export default TestingCenters;

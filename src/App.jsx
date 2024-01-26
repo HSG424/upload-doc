@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ModalUpload from "./Modal/ModalUpload";
-import Button from "./components/form/Button";
+import { Button } from "./components/form/elements";
 import "./app.scss";
 
 function App() {

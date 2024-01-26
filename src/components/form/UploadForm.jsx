@@ -1,13 +1,15 @@
 import { useState, useRef } from "react";
+import {
+  Button,
+  Label,
+  RadioBtn,
+  ToggleCheck,
+  SectionInfo,
+  TestingCenters,
+  BigSelect,
+} from "./elements";
+import { ClockIcon } from "./icons";
 import { importNames, testingCentersData } from "../../test-data/test-data.js";
-import BigSelect from "./BigSelect";
-import SectionInfo from "./SectionInfo";
-import Button from "./Button";
-import RadioBtn from "./RadioBtn";
-import TestingCenters from "./TestingCenters";
-import Label from "./Label";
-import ToggleCheck from "./ToggleCheck";
-import ClockIcon from "./icons/ClockIcon";
 
 const noSelectedCenters = {
   center1: "",

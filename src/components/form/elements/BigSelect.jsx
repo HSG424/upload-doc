@@ -1,6 +1,6 @@
-import DownIcon from "./icons/DownIcon";
+import { DownIcon } from "../icons";
 
-const BigSelect = (props) => {
+export const BigSelect = (props) => {
   return (
     <div className="select-container">
       <select
@@ -21,4 +21,3 @@ const BigSelect = (props) => {
     </div>
   );
 };
-export default BigSelect;
