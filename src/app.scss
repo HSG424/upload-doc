@@ -41,7 +41,6 @@ body {
   margin-top: 36px;
   width: 916px;
   padding-bottom: 28px;
-  /*  background-color: blanchedalmond;*/
 }
 
 .flex-container {
@@ -49,13 +48,11 @@ body {
 }
 
 .form-left-side {
-  /*background-color: snow;*/
   flex-basis: 55%;
   padding-right: 7%;
 }
 
 .form-right-side {
-  /*  background-color: aliceblue;*/
   flex-basis: 38%;
 }
 
@@ -92,8 +89,6 @@ form input[type="radio"] {
   width: 23px;
   height: 23px;
   accent-color: $dark-navy-text;
-  /*accent-color: navy;
-    accent-color: red;*/
 }
 
 .radio-container {
